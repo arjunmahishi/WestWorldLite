@@ -23,7 +23,7 @@ class World:
 		for obj in self.objects:
 			print obj
 
-	def addObject(self, objects):
+	def addObjects(self, objects):
 		for obj in objects:
 			self.objects.append(obj)
 
