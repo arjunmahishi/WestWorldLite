@@ -1,47 +1,19 @@
-class Host:
-	def __init__(self, hostGender, hostName="noname"):
-		self.hostName = hostName
-		self.hostGender = hostGender
-		self.age = 0
+from BluePrint.world import World
+from BluePrint.host import Host
+from BluePrint.object import Object
 
-	def __str__(self):
-		return self.hostName
+westWorld = World()
+population = {
+	"Adam" : "male",
+	"Eve" : "female"
+}
 
-class World:
-	def __init__(self):
-		self.hosts = []
+hosts = []
 
-	def allHosts(self):
-		for host in self.hosts:
-			print host
+for person in population.keys():
+	hosts.append(Host(population[person], person))
 
-	def addHosts(self, hosts):
-		for host in hosts:
-			self.hosts.append(host)
-
-	def removeHost(self, hostName):
-		print "Finding %s..." % hostName
-		for i in range(len(self.hosts)):
-			if self.hosts[i].hostName == hostName:
-				self.hosts.pop(i)
-				print "%s removed" % hostName
-				break
-
-
-if __name__ == "__main__":
-
-	westWorld = World()
-	population = {
-		"Adam" : "male",
-		"Eve" : "female"
-	}
-
-	hosts = []
-
-	for person in population.keys():
-		hosts.append(Host(population[person], person))
-
-	westWorld.addHosts(hosts)
-	westWorld.allHosts()
-	westWorld.removeHost("Adam")
-	westWorld.allHosts()
+westWorld.addHosts(hosts)
+westWorld.allHosts()
+westWorld.removeHost("Adam")
+westWorld.allHosts()
