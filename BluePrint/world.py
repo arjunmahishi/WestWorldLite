@@ -18,3 +18,19 @@ class World:
 				self.hosts.pop(i)
 				print "%s removed" % hostName
 				break
+
+	def allObjects(self):
+		for obj in self.objects:
+			print obj
+
+	def addObject(self, objects):
+		for obj in objects:
+			self.objects.append(obj)
+
+	def removeObject(self, objectName):
+		print "Finding %s..." % objectName
+		for i in range(len(self.objects)):
+			if self.objects[i].objectName == objectName:
+				self.objects.pop(i)
+				print "%s removed" % objectName
+				break
