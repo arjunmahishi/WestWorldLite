@@ -20,9 +20,12 @@ class World:
 			self.hosts.append(host)
 
 	def removeHost(self, hostName):
+		print "Finding %s..." % hostName
 		for i in range(len(self.hosts)):
 			if self.hosts[i].hostName == hostName:
 				self.hosts.pop(i)
+				print "%s removed" % hostName
+				break
 
 
 if __name__ == "__main__":
@@ -39,4 +42,6 @@ if __name__ == "__main__":
 		hosts.append(Host(population[person], person))
 
 	westWorld.addHosts(hosts)
+	westWorld.allHosts()
+	westWorld.removeHost("Adam")
 	westWorld.allHosts()
